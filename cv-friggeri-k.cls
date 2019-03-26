@@ -137,6 +137,18 @@
   \stepcounter{colorCounter}%
 }
 
+\newcounter{skillColorCounter}
+\def\@skillcolor{%
+  \ifcase\value{skillColorCounter}%
+    blue\or%
+    red\or%
+    orange\or%
+    green\or%
+    purple\or%
+    brown\else%
+    headercolor\fi%
+}
+
 \renewcommand{\section}[1]{
   \par\vspace{\parskip}
   {%
@@ -214,6 +226,14 @@
   \end{flushright}
   \end{textblock}
   \let\section\oldsection
+}
+
+\RequirePackage{progressbar}
+\newcommand{\skill}[2]{
+#1
+\noindent%
+\progressbar[width=36mm,roundnessr=0.55,emptycolor=white,filledcolor=\@skillcolor]{#2}
+\stepcounter{skillColorCounter}%
 }
 
 %%%%%%%%%%%%%%%%

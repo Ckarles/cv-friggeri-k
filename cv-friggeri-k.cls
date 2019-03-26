@@ -188,6 +188,12 @@
   \end{tabular*}
 }
 
+\newenvironment{notabentrylist}{%
+  \begin{description}
+}{%
+  \end{description}
+}
+
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
   \parbox[t]{2cm}{\hfill#1}&\parbox[t]{\inlength}{%
@@ -196,6 +202,12 @@
     {\normalsize\addfontfeature{Color=lightgray} \textit{#3}}\\%
     #4\vspace{\parsep}%
 }\\}
+
+\newcommand{\notabentry}[2]{%
+  \item%
+  [\textbf{#1}]%
+  #2\vspace{\parsep}%
+}
 
 %%%%%%%%%%%%%%
 % Side block %

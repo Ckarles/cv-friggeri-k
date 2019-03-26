@@ -367,34 +367,6 @@
 	urlcolor = blue
 }
 
-% Newcommands for glyph printing
-\RequirePackage{graphicx}
-
-% Add a Google-style pin
-\newcommand*{\pin}{%
-  \textcolor{gray}{\includegraphics[height=1em]{resources/pin}}%
-}
-
-% Add fb logo
-\newcommand*{\flogo}{%
-  \textcolor{fblue}{\includegraphics[height=1em]{resources/f_logo}}%
-}
-
-% Add twitter logo
-\newcommand*{\tlogo}{%
-  \textcolor{tblue}{\includegraphics[height=1em]{resources/twitter_logo}}%
-}
-
-% Add linkedin logo
-\newcommand*{\llogo}{%
-  \textcolor{lblue}{\includegraphics[height=1em]{resources/linkedin_logo}}%
-}
-
-% Add vk logo
-\newcommand*{\vklogo}{%
-  \textcolor{vkblue}{\includegraphics[height=1em]{resources/vk_logo}}%
-}
-
 % A fix for \href{}{} colors not working with fontspec
 \makeatletter
 \def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=#1}}

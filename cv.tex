@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% cv-friggeri-x 1.0 (01/01/2016)
+% cv-friggeri-k 1.0 (01/01/2019)
 % XeLaTeX Template
 %
 % Based on:
@@ -14,6 +14,10 @@
 % Nadorrano
 % https://github.com/Nadorrano/cv-friggeri-x
 %
+% Modified by:
+% Ckarles
+% https://gitlab.com/Ckarles/cv-friggeri-k.git
+%
 % License:
 % MIT (https://opensource.org/licenses/MIT)
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -24,12 +28,12 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper]{cv-friggeri-x}
+\documentclass[a4paper]{cv-friggeri-k}
 % Add `a4paper` to set a4 paper size
 % Add `nocolors` to remove colors from the document
 % Add `lightheader` to change the dark background of the header to white
 
-\usepackage{marvosym} % needed to print glyphs for email, cell phone etc.
+\usepackage{fontawesome} % needed to print glyphs for email, cell phone etc.
 
 \addbibresource{bibliography.bib} % Specify the bibliography file to include publications
 
@@ -43,20 +47,20 @@
 
 \begin{aside} % In the aside, each new line forces a line break
 \section{contact}
-\pin \hfill 123 Broadway
+{\Large\textcolor{gray}{\faMapMarker}} \hfill 123 Broadway
 City, State 12345
 Country
 ~
-{\Large\textcolor{gray}{\Telefon}} \hfill +0 (000) 111 1111
-{\Large\textcolor{gray}{\Mobilefone}} \hfill +0 (000) 111 1112
-{\Large\textcolor{gray}{\Letter}} \hfill \href{mailto:john@smith.com}{john@smith.com}
+{\textcolor{gray}{\faPhone}} \hfill +0 (000) 111 1111
+{\Large\textcolor{gray}{\faMobilePhone}} \hfill +0 (000) 111 1112
+{\textcolor{gray}{\faEnvelope}} \hfill \href{mailto:john@smith.com}{john@smith.com}
 ~
-\flogo \hfill \href{http://facebook.com/johnsmith}{fb://jsmith}
-\tlogo \hfill \href{http://twitter.com/johnsmith}{@jsmith}
-\llogo \hfill \href{http://linkedin.com/johnsmith}{in://johnsmith}
-\vklogo \hfill \href{http://vk.com/johnsmith}{vk://johnsmith}
+{\textcolor{gray}{\faFacebook}} \hfill \href{http://facebook.com/johnsmith}{fb://jsmith}
+{\textcolor{gray}{\faTwitter}} \hfill \href{http://twitter.com/johnsmith}{@jsmith}
+{\textcolor{gray}{\faLinkedin}} \hfill \href{http://linkedin.com/johnsmith}{in://johnsmith}
+{\textcolor{gray}{\faVk}} \hfill \href{http://vk.com/johnsmith}{vk://johnsmith}
 ~
-\href{http://www.smith.com}{http://www.smith.com}
+{\textcolor{gray}{\faGlobe}} \hfill \href{http://smith.com}{http://smith.com}
 \section{languages}
 english mother tongue
 spanish \& italian fluency

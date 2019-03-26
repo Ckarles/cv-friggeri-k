@@ -14,9 +14,13 @@
 
 \afourpaperfalse
 
+\newlength{\inlength}
+\setlength{\inlength}{11.6cm}
+
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
     \setlength\paperwidth  {210mm}%
+    \setlength\inlength {11.1cm}%
     \afourpapertrue%
    }
 
@@ -184,27 +188,14 @@
   \end{tabular*}
 }
 
-% Set a4paper and US letter size as explained here:
-% http://tex.stackexchange.com/questions/248399/trasform-friggeri-cv-to-a4
-
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
-\ifafourpaper
-  \newcommand{\entry}[4]{%
-  \parbox[t]{2cm}{\hfill#1}&\parbox[t]{11.1cm}{%
-  \textbf{#2}%
-  \hfill%
-  {, \normalsize\addfontfeature{Color=lightgray} \textit{#3}}\\%
-  #4\vspace{\parsep}%
-  }\\}
-\else
-  \newcommand{\entry}[4]{%
-    \parbox[t]{2cm}{\hfill#1}&\parbox[t]{11.6cm}{%
+\newcommand{\entry}[4]{%
+  \parbox[t]{2cm}{\hfill#1}&\parbox[t]{\inlength}{%
     \textbf{#2}%
     \hfill%
-    {, \normalsize\addfontfeature{Color=lightgray} \textit{#3}}\\%
+    {\normalsize\addfontfeature{Color=lightgray} \textit{#3}}\\%
     #4\vspace{\parsep}%
-    }\\}
-\fi
+}\\}
 
 %%%%%%%%%%%%%%
 % Side block %

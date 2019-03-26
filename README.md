@@ -1,11 +1,17 @@
-# cv-friggeri-x
+# cv-friggeri-k
 
 ## about Friggeri CV
 Friggeri CV is an elegant *Curriculum Vitae* template for LaTeX/XeTeX originally written and released by [Adrian Friggeri](https://github.com/afriggeri).
 
-In this work the original template is updated/upgraded and fitted to my personal needs.
+This work is a fork of [cv-friggeri-x](https://github.com/Nadorrano/cv-friggeri-x) from [Nadorrano](https://github.com/Nadorrano)
 
 ## what's new
+  - inclusion of a photo in the aside box
+  - "skills" section with simple progressbars
+  - uses of fontawesome instead of marvosym
+  - various tweaks and optimizations
+
+## changes brought by Nadorrano
   - the default font (Helvetica) is replaced by the open source font Roboto from Google, available free of charge [here](https://www.google.com/fonts/specimen/Roboto)
   - A4 paper size is now available for the CV class. This option can
 be set in the document class declaration as usual, e.g.:
@@ -34,8 +40,8 @@ This LaTeX template uses TikZ for the header, XeTeX and fontspec for custom font
 A basic compilation workflow would be:
 
 ```sh
-git clone https://github.com/Nadorrano/cv-friggeri-x
-cd cv-friggeri-x
+git clone https://gitlab.com/Ckarles/cv-friggeri-k.git
+cd cv-friggeri-k
 xelatex cv
 biber cv
 xelatex cv

@@ -9,3 +9,7 @@
 *.log
 *.out
 *.xml
+
+# repo specific files
+cv.tex
+resources/id-photo.png

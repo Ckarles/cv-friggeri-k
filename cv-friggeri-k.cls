@@ -5,6 +5,8 @@
 
 \DeclareOption{nocolors}{\def\@cv@nocolors{}}
 
+\DeclareOption{nobackground}{\def\@cv@nobackground{}}
+
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
 }
@@ -36,19 +38,25 @@
 
 \definecolor{white}{RGB}{255,255,255}
 
-\definecolor{darkgray}{HTML}{333333}
-\definecolor{gray}{HTML}{4D4D4D}
+\definecolor{darkgray}{HTML}{39393A}
+\definecolor{gray}{HTML}{636362}
 \definecolor{lightgray}{HTML}{999999}
 
-\definecolor{green}{HTML}{C2E15F}
-\definecolor{orange}{HTML}{FDA333}
-\definecolor{purple}{HTML}{D3A4F9}
-\definecolor{red}{HTML}{FB4485}
-\definecolor{blue}{HTML}{6CE0F1}
-\definecolor{fblue}{HTML}{3D539E}
-\definecolor{tblue}{HTML}{55ACEE}
-\definecolor{lblue}{HTML}{0077B5}
-\definecolor{vkblue}{HTML}{A6B8D4}
+\definecolor{c0}{HTML}{3A6EA5}
+\definecolor{c1}{HTML}{A17DA0}
+\definecolor{c2}{HTML}{C14953}
+\definecolor{c3}{HTML}{D8CD83}
+\definecolor{c4}{HTML}{297373}
+\definecolor{c5}{HTML}{372248}
+
+\ifdefined\@cv@nocolors
+\colorlet{c0}{gray}
+\colorlet{c1}{gray}
+\colorlet{c2}{gray}
+\colorlet{c3}{gray}
+\colorlet{c4}{gray}
+\colorlet{c5}{gray}
+\fi
 
 \ifdefined\@cv@lightheader
   \colorlet{fillheader}{white}
@@ -56,19 +64,6 @@
 \else 
   \colorlet{fillheader}{gray}
   \colorlet{header}{white}
-\fi
-
-\ifdefined\@cv@nocolors
-  \colorlet{green}{gray}
-  \colorlet{orange}{gray}
-  \colorlet{purple}{gray}
-  \colorlet{brown}{gray}
-  \colorlet{red}{gray}
-  \colorlet{blue}{gray}
-  \colorlet{fblue}{gray}
-  \colorlet{tblue}{gray}
-  \colorlet{lblue}{gray}
-  \colorlet{vkblue}{gray}
 \fi
 
 \colorlet{textcolor}{gray}
@@ -90,6 +85,16 @@
 
 %\setmathfont{XITS Math}
 
+%%%%%%%%%%%%%%
+% Background %
+%%%%%%%%%%%%%%
+
+\newcommand{\background}[1]{%
+  \ifx \@cv@nobackground \undefined
+    \tikz[remember picture,overlay] \node[opacity=0.8,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};%
+  \fi
+}
+
 %%%%%%%%%%
 % Header %
 %%%%%%%%%%
@@ -104,7 +109,7 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm, opacity=0.55] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
       \fontsize{40pt}{72pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
@@ -128,29 +133,19 @@
 \def\@sectioncolor#1#2#3{%
   {%
     \color{%
-      \ifcase\value{colorCounter}%
-        blue\or%
-        red\or%
-        orange\or%
-        green\or%
-        purple\or%
-        brown\else%
-        headercolor\fi%
+      c\the\value{colorCounter}%
     } #1#2#3%
   }%
-  \stepcounter{colorCounter}%
+  \ifnum\value{colorCounter}=5%
+    \setcounter{colorCounter}{0}%
+  \else%
+    \stepcounter{colorCounter}%
+  \fi%
 }
 
 \newcounter{skillColorCounter}
 \def\@skillcolor{%
-  \ifcase\value{skillColorCounter}%
-    blue\or%
-    red\or%
-    orange\or%
-    green\or%
-    purple\or%
-    brown\else%
-    headercolor\fi%
+  c\the\value{skillColorCounter}%
 }
 
 \renewcommand{\section}[1]{
@@ -235,8 +230,12 @@
 \newcommand{\skill}[2]{
 #1
 \noindent%
-\progressbar[width=36mm,roundnessr=0.55,emptycolor=white,filledcolor=\@skillcolor]{#2}
-\stepcounter{skillColorCounter}%
+\progressbar[width=38mm, linecolor=darkgray, borderwidth=0.3mm, tickscolor=darkgray, roundnessr=0.55, filledcolor=\@skillcolor]{#2}
+\ifnum\value{skillColorCounter}=5%
+  \setcounter{skillColorCounter}{0}%
+\else%
+  \stepcounter{skillColorCounter}%
+\fi%
 }
 
 %%%%%%%%%%%%%%%%
@@ -384,10 +383,10 @@
 \hypersetup{
 	hidelinks,
 	%colorlinks,
-	linkcolor=red,
-	citecolor=red,
-	filecolor=red,
-	urlcolor = blue
+	linkcolor=c2,
+	citecolor=c2,
+	filecolor=c2,
+	urlcolor = c0
 }
 
 % A fix for \href{}{} colors not working with fontspec

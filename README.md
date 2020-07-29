@@ -8,8 +8,10 @@ This work is a fork of [cv-friggeri-x](https://github.com/Nadorrano/cv-friggeri-
 ## what's new
   - inclusion of a photo in the aside box
   - "skills" section with simple progressbars
+  - background command (and `nobackground` document class option to disable it)
   - uses of fontawesome instead of marvosym
-  - various tweaks and optimizations
+  - new color-theme
+  - various improvements, tweaks and optimizations
 
 ## changes brought by Nadorrano
   - the default font (Helvetica) is replaced by the open source font Roboto from Google, available free of charge [here](https://www.google.com/fonts/specimen/Roboto)
